@@ -1,14 +1,27 @@
+#include <stdlib.h>
+#include <time.h>
 #include <stdio.h>
-#include "main.h"
-/* more headers goes there */
 
 /**
-	* main - prints a boolean
-	* Description: prints a boolean
-	* Return: 0
+* positive_or_negative - Determines if a number is positive, negative or zero.
+*@n: integer
+* Return: Always 0 (Success)
 */
 
 void positive_or_negative(int n)
 {
-	printf("%i is %s\n", n, n < 0 ? "negative" : n == 0 ? "zero" : "positive");
+	srand(time(0));
+
+	if (n > 0)
+	{
+		printf("%d is positive\n", n);
+	}
+	else if (n == 0)
+	{
+		printf("%d is zero\n", n);
+	}
+	else
+	{
+		printf("%d is negative\n", n);
+	}
 }
