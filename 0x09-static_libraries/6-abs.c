@@ -1,17 +1,17 @@
 #include "main.h"
-
 /**
-	* _abs - returns absolute value of an integer
-	* @n: number
-	* Description: return absolute value of an integer
-	* Return: int
-*/
-
+ * _abs - compute the absolute value of an integer
+ * @n: int type number
+ * Return: absolute value of @n
+ */
 int _abs(int n)
 {
 	if (n < 0)
 	{
-		return (-n);
+		return (n * -1);
 	}
-	return (n);
+	else
+	{
+		return (n);
+	}
 }

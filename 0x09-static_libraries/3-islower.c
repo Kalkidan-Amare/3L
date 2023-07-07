@@ -1,12 +1,12 @@
 #include "main.h"
 
-
 /**
-	* _islower - checks if integer is a lowercase letter
-	* @c: letter
-	* Description: checks if integer is a lowercase letter
-	* Return: boolean
-*/
+ * _islower - prints 1 or 0 depending on input
+ * @c: first parameter
+ *
+ * Description: prints all lowercase letters
+ * Return: Always(0).
+ */
 
 int _islower(int c)
 {
