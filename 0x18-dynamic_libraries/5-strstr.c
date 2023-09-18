@@ -1,47 +1,35 @@
-#include "holberton.h"
+#include "main.h"
+#include <string.h>
 
 /**
- * _strstr - function that locates a substring.
- * @haystack: destenation of string
- * @needle: string to be checked with
+ * _strstr -  searches a string for any of a set of bytes.
  *
- * Return: a pointer to the beginning of the located substring
+ * @haystack: pointer to string
+ * @needle: substring to be located
+ *
+ * Return: a pointer to the byte in string
  */
 
 char *_strstr(char *haystack, char *needle)
 {
-	int j = 0;
-	int  len = 0;
+	char *or_haystack = haystack, *or_needle = needle;
 
-	if (*needle == '\0')
+	while (*haystack)
 	{
-		return (haystack);
-	}
-
-	while (haystack[j] != '\0')
-	{
-		int i = 0;
-
-		if (haystack[j] == needle[0])
+		while (*needle)
 		{
-			while (needle[i] != '\0')
+			if (*haystack++ != *needle++)
 			{
-				if (haystack[i + j] != needle[i])
-				{
-					len = 0;
-					break;
-				}
-				else
-					len = 1;
-				i++;
-			}
-			if (len)
 				break;
+			}
 		}
-		j++;
+		if (!*needle)
+		{
+			return (or_haystack);
+		}
+		needle = or_needle;
+		or_haystack++;
+		haystack = or_haystack;
 	}
-	if (len)
-		return (haystack + j);
-	else
-		return (NULL);
+	return (0);
 }

@@ -1,24 +1,26 @@
-#include "holberton.h"
+#include "main.h"
+#include <string.h>
 
 /**
- * _strspn - function that gets the length of a prefix substring.
- * @s: destenation of string
- * @accept: characters to check
+ * _strspn - gets the length of a prefix substring.
+ *
+ * @s: pointer to string
+ * @accept: substring to be located
  *
  * Return: number of bytes in the initial segment
  */
 
 unsigned int _strspn(char *s, char *accept)
 {
-	int j = 0, output = 0;
+	unsigned int len = 0;
 
-	for (; s[j] != '\0'; j++)
+	if ((s == NULL) || (accept == NULL))
+		return (len);
+
+	while (*s && strchr(accept, *s++))
 	{
-		if (_strchr(accept, s[j]) == NULL)
-		{
-			break;
-		}
-		output++;
+		len++;
 	}
-	return (output);
+
+return (len);
 }

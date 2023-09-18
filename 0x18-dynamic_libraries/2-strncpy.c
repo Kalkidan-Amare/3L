@@ -1,25 +1,21 @@
-#include "holberton.h"
-
 /**
- * _strncpy - function that copys two strings
- * @dest: destenation of addition
- * @src: string to be added
- * @n: size of bytes to be used
+ * _strncpy - concatenates two strings.
+ * @dest: destination string
+ * @src: source string
+ * @n: no. of character to be concatnated.
  *
- * Return: a pointer to the resulting string dest
+ * Return: concatnated string
  */
 
 char *_strncpy(char *dest, char *src, int n)
 {
-	int j = 0;
+	int len;
 
-	for (; j < n && src[j] != '\0'; j++)
-	{
-		dest[j] = src[j];
-	}
-	for (; j < n; j++)
-	{
-		dest[j] = '\0';
-	}
+	for (len = 0; len < n && *src != '\0'; ++len)
+		*(dest + len) = *src++;
+
+	for (; len < n; ++len)
+		*(dest + len) = '\0';
+
 	return (dest);
 }

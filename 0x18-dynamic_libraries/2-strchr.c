@@ -1,23 +1,30 @@
-#include "holberton.h"
+#include "main.h"
+#include <stddef.h>
 
 /**
- * _strchr - function that fills memory with a constant byte.
- * @s: destenation of string
- * @c: character to replace
+ * _strchr - locates a character in a string.
  *
- * Return: a pointer to the resulting string
+ * @s: pointer to string
+ * @c: character to be located
+ *
+ * Return: a pointer to the character
  */
 
 char *_strchr(char *s, char c)
 {
-	unsigned int j = 0;
+	char *isFound = NULL;
 
-	for (; s[j] != '\0' && s[j] != c; j++)
+	while (*s != '\0')
 	{
-		continue;
+		if (*s == c)
+		{
+			isFound = s;
+			break;
+		}
+		++s;
 	}
-	if (s[j] == c)
-		return (s + j);
-	else
-		return (NULL);
+	if (*s == c)
+		isFound = s;
+
+return (isFound);
 }

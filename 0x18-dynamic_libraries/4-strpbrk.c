@@ -1,23 +1,31 @@
-#include "holberton.h"
+#include "main.h"
+#include <string.h>
 
 /**
- * _strpbrk - function that searches a string for any of a set of bytes.
- * @s: destenation of string
- * @accept: string to be checked with
+ * _strpbrk -  searches a string for any of a set of bytes.
  *
- * Return: a pointer to the resulting string
+ * @s: pointer to string
+ * @accept: substring to be located
+ *
+ * Return: a pointer to the byte in string
  */
 
 char *_strpbrk(char *s, char *accept)
 {
-	int j = 0;
-
-	for (; s[j] != '\0' && _strchr(accept, s[j]) == NULL; j++)
-	{
-		continue;
-	}
-	if (s[j] == '\0')
+	if ((s == NULL) || (accept == NULL))
 		return (NULL);
-	else
-		return (s + j);
+
+	while (*s)
+	{
+		if (strchr(accept, *s))
+		{
+			return (s);
+		}
+		else
+		{
+			s++;
+		}
+	}
+
+return (NULL);
 }

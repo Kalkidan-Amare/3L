@@ -1,21 +1,22 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
- * _memcpy - function that copies memory area.
- * @dest: destenation of string
- * @src: memory area
- * @n: size of bytes to be used
+ * _memcpy - fills the first n bytes of the memory area
+ * pointed to by s with the constant byte b
  *
- * Return: a pointer to the resulting string
+ * @dest: pointer to memory area to be copied
+ * @src: pointer to memory area where to copy
+ * @n: byte size
+ *
+ * Return: a pointer to the memory area
  */
 
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
-	unsigned int j = 0;
+	char *pdest = dest;
 
-	for (; j < n && dest[j] != '\0'; j++)
-	{
-		dest[j] = src[j];
-	}
-	return (dest);
+	while (n--)
+		*pdest++ = *src++;
+
+return (dest);
 }
